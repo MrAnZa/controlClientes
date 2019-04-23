@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore} from '@angular/fire/firestore';
-import {Cliente} from 'modelo/cliente.model';
+import {Cliente} from '../modelo/cliente.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
@@ -8,11 +8,11 @@ import {map} from 'rxjs/operators';
 export class  ClienteServicio {
 	clientesColeccion: AngularFirestoreCollection;
 	clienteDoc: AngularFirestoreDocument<Cliente>;
-	clientes:Oservable<Cliente[]>;
+	clientes:Observable<Cliente[]>;
 	cliente: Observable<Cliente>;
 
 	constructor(private db: AngularFirestore){
-		this.clientesColeccion=db.collection('clientes' ref=>ref.orderBy('nombre','asc'));
+		this.clientesColeccion=db.collection('clientes', ref=>ref.orderBy('nombre','asc'));
 
 	}
 	getclientes(): Observable<Cliente[]>{
