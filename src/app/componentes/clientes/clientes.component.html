@@ -63,7 +63,7 @@
 
 <!--Agregar cliente modal-->
 <div class="modal fade" id="agregarClienteModal">
-	<div class="modal-dialog modl-lg">
+	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header bg-info text-white">
 				<h5 class="modal-title">Agregar Cliente</h5>
@@ -71,11 +71,17 @@
 					<span>&times;</span>
 				</button>
 			</div>
-			<form>
+			<flash-messages>
+				
+			</flash-messages>
+			<form #clienteForm="ngForm" (ngSubmit)="agregar(clienteForm)">
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="nombre">Nombre</label>
-						<input type="text" name="nombre" class="form-control">
+						<input type="text" name="nombre" class="form-control" #nombre="ngModel" [(ngModel)]="cliente.nombre" [ngClass]="{'is-invalid':nombre.errors && nombre.touched }"required minlength="2">
+						<div [hidden]="!nombre.errors?.required" class="invalid-feedback">Nombre Requerido</div>
+						<div [hidden]="!nombre.errors?.minlength" class="invalid-feedback">Minimo 2 
+						Caracteres</div>
 					</div>
 
 					<div class="form-group">
