@@ -47,5 +47,15 @@ export class  ClienteServicio {
 		);
 		return this.cliente;
 	}
+
+	modificarCliente(cliente: Cliente){
+		this.clienteDoc=this.db.doc(`clientes/${cliente.id}`);
+		this.clienteDoc.update(cliente);
+	}
+
+	eliminarCliente(cliente: Cliente){
+		this.clienteDoc=this.db.doc(`clientes/${cliente.id}`);
+		this.clienteDoc.delete();
+	}
 }
 
