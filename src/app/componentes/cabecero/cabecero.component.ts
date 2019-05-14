@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService} from '../../servicios/login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cabecero',
@@ -6,10 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabecero.component.css']
 })
 export class CabeceroComponent implements OnInit {
+	isLoggedIn: boolean;
+	loggedINUSer: string;
 
-  constructor() { }
+  constructor(private loginService: LoginService,
+		private router: Router ) { }
 
   ngOnInit() {
+  	this.loginService.getAuth().subscribe(auth=>{
+  		if(auth){
+  			this.isLoggedIn=true;
+  			this.loggedINUSer=auth.email;
+  		}else{
+  			this.isLoggedIn=false;
+  		}
+  	})
   }
-
+  	logout(){
+  		this.loginService.logout();
+  		this.isLoggedIn=false;
+  		this.router.navigate(['/login']);
+  	}
 }

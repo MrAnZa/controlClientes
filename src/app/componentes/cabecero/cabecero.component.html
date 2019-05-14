@@ -11,9 +11,9 @@
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
-			<li class="navbar-item dropdown mr-3">
+			<li *ngIf="isLoggedIn" class="navbar-item dropdown mr-3">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-					<i class="fas fa-user"></i>Bienvenido
+					<i class="fas fa-user"></i>Bienvenido {{loggedINUSer}}
 				</a>
 				<div class="dropdown-menu">
 					<a routerLink="/configuracion" class="dropdown-item">
@@ -21,9 +21,14 @@
 					</a>
 				</div>				
 			</li>
-			<li class="nav-item">
+			<li *ngIf="!isLoggedIn" class="nav-item">
 				<a routerLink="/login" class="nav-link">
 					<i class="fas fa-user"></i>Login
+				</a>				
+			</li>
+			<li *ngIf="isLoggedIn" class="nav-item">
+				<a style="cursor: pointer;" (click)="logout()" class="nav-link">
+					<i class="fas fa-user-times"></i>Logout
 				</a>				
 			</li>
 		</ul>
