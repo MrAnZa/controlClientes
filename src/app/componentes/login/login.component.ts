@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
-import {FlashMessagesService} from 'angular2-flash-messages';
-import {LoginService} from 'src/app/servicios/login.service';
+import { Router } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
+import { LoginService } from 'src/app/servicios/login.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   	this.loginService.getAuth().subscribe(auth =>{
   		if(auth){
-  			this.router.navigate(['/'])
+  			this.router.navigate(['/']);
   		}
   	})
   }
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   	})
   	.catch(error =>{
   		this.flashMessages.show(error.message, {
-  		cssClass: 'alert-danger', timeout: 4000
+  		cssClass: 'alert-warning', timeout: 4000
   	  	});
   	});
   }

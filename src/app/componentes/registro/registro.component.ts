@@ -31,8 +31,8 @@ registro(){
 		this.router.navigate(['/']);
 	})
 	.catch(error =>{
-		this.flashMessages.show(error.message,{
-			cssClass: 'alert-danger', timeout:4000
+		this.flashMessages.show(error,{
+			cssClass: 'alert-warning', timeout:4000
 		});
 	});
 }
