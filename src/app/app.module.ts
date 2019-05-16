@@ -21,8 +21,8 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
 import { ClienteServicio } from './servicios/clientes.service';
 import { LoginService } from './servicios/login.service';
 import { AuthGuard } from './guardianes/auth.guards';
-//import { ConfiguracionServicio } from './servicios/configuracion.service';
-//import { ConfiguracionGuard } from './guardianes/configuracion.guard';
+import { ConfiguracionServicio } from './servicios/configuracion.service';
+import { ConfiguracionGuard } from './guardianes/configuracion.guards';
 
 @NgModule({
   declarations: [
@@ -50,8 +50,8 @@ import { AuthGuard } from './guardianes/auth.guards';
     ClienteServicio, 
     LoginService, 
     AuthGuard, 
-    //ConfiguracionServicio, 
-    //ConfiguracionGuard,
+    ConfiguracionServicio, 
+    ConfiguracionGuard,
     { provide: FirestoreSettingsToken, useValue:{}}
   ],
   bootstrap: [AppComponent]

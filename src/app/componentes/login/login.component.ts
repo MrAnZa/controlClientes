@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   	})
   	.catch(error =>{
   		this.flashMessages.show(error.message, {
-  		cssClass: 'alert-warning', timeout: 4000
+  		cssClass: 'alert-danger', timeout: 4000
   	  	});
   	});
   }

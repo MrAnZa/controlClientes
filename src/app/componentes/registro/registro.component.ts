@@ -32,7 +32,7 @@ registro(){
 	})
 	.catch(error =>{
 		this.flashMessages.show(error,{
-			cssClass: 'alert-warning', timeout:4000
+			cssClass: 'alert-danger', timeout:4000
 		});
 	});
 }
